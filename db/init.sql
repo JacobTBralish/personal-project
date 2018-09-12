@@ -2,6 +2,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY NOT NULL
     ,username VARCHAR(30) NOT NULL UNIQUE
     ,password TEXT NOT NULL
+    ,profilePic TEXT
     ,first_name VARCHAR(18) NOT NULL
     ,last_name VARCHAR(25) NOT NULL
     ,email VARCHAR(45) NOT NULL UNIQUE
@@ -11,9 +12,9 @@ CREATE TABLE users (
 
 CREATE TABLE campsites (
     id SERIAL PRIMARY KEY NOT NULL
-    ,difficulty INTEGER
     ,campsite_name VARCHAR(30)
     ,campsite_pic TEXT NOT NULL
+    ,hours_of_operation INTEGER
     ,state CHAR(2) NOT NULL
     ,city VARCHAR(25) NOT NULL
     ,zip INTEGER NOT NULL

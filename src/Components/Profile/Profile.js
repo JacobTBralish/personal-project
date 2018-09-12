@@ -1,2 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+class Profile extends Component {
+    state = {  }
+    render() { 
+        return ( 
+        <div>
+            <div>Profile</div>
+        </div>
+         );
+    }
+}
+ 
+export default Profile;

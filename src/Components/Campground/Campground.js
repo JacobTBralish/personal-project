@@ -9,9 +9,9 @@ function Campsite(props){
             </div>
             <div>
                 <p>Campground Name: {props.name}</p>
-                <p>State: {props.states}</p>
-                {/* <p>{props.parkCode}</p> */}
-                {/* <p>{props.}</p> */}
+                <p>State: {props.addresses ? props.addresses[0].stateCode : 'N/A'}</p>
+                <p>State park: {props.parkCode ? props.parkCode : 'N/A'}</p>
+                <p>Latitude and Longitude: {props.latLong ? props.latLong : 'N/A'}</p>
                 <p>{}</p>
             </div>
         </div>
