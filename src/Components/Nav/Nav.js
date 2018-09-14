@@ -7,7 +7,7 @@ function Nav (){
     <div className='NavBack'>
         <ul className='Navbar'>
             <button className='NavLink'><li><Link to='/' className='navButton' >Home</Link></li></button>
-            <button className='NavLink'><li><Link to='/campgrounds' className='navButton' >Campgrounds</Link></li></button>
+            <button className='NavLink'><li><Link to='/findstate' className='navButton' >Find Campgrounds</Link></li></button>
             <button className='NavLink'><li><Link to='/login' className='navButton' >Login</Link></li></button>
             <button className='NavLink'><li><Link to='/register' className='navButton' >Register</Link></li></button>
             <button className='NavLink'><li><Link to='/searchbymap' className='navButton' >Search the map</Link></li></button>

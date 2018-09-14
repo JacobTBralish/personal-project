@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import { setCampsites, setParks, setAll } from '../../redux/reducer';
+import { findState, findParks, findCampsites } from '../../redux/reducer';
 import { connect } from "react-redux";
 import Campground from '../Campground/Campground';
-import Pagination from 'react-js-pagination';
+// import Pagination from 'react-js-pagination';
 
 class Campgrounds extends Component {
     constructor(props){
         super(props);
         this.state = {
-            activePage: 1
+            // activePage: 1
         }
     }
  
@@ -16,9 +16,12 @@ class Campgrounds extends Component {
 
     componentDidMount(){
         const { setCampsites } = this.props;
-        setParks();
-        setCampsites();
-        setAll();
+        // setParks();
+        // setCampsites();
+        // setAll();
+        findState();
+        // findParks();
+        // findCampsites();
     }
 
     handlePageChange = (pageNumber)  => {
@@ -30,9 +33,9 @@ class Campgrounds extends Component {
     
     render() { /* console.log(this.state.campsites) */
         // let { name, parkCode, latLog }
-        let { campsites, newData } = this.props;
+        let { campsites, data, state } = this.props;
         
-        let displayCampsite = campsites ? campsites.map((campsite, index) => {
+        let displayStates = state ? state.map((campsite, index) => {
             return <div key={index}><Campground {...campsite} /></div>
         }) : 'loading'
 
@@ -44,16 +47,17 @@ class Campgrounds extends Component {
         
         return ( 
             <div>
-                <div>{displayCampsite}</div>
-                {/* <div>{displayNewData}</div> */}
+                
+                <div>{displayStates}</div>
+                {/* <div>{displayNewData}</div>
             <div>
                 <Pagination
                 activePage={this.state.activePage}
-                itemsCountPerPage={25}
+                itemsCountPerPage={21}
                 totalItemsCount={581}
                 pageRangeDisplayed={5}
                 onChange={this.handlePageChange}/>
-            </div>
+            </div> */}
 
             </div>
          );
@@ -62,15 +66,19 @@ class Campgrounds extends Component {
 
 const mapStateToProps = state => {
     return {
+    parks: state.parks,
     campsites: state.campsites,
+    data: state.data
     }
 }
 
 
 const mapDispatchToProps = {
-    setParks,
-    setCampsites,
-    setAll
+    findParks,
+    findState,
+    // setCampsites,
+    // setAll
+    findCampsites
 }
 
 

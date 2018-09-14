@@ -1,23 +1,6 @@
-require('dotenv').config();
-const express = require('express');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const massive = require('massive');
-// const axios = require('axios');
+// import bcrypt from 'bcrypt';
 
-const app = express();
-
-app.use(bodyParser.json());
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 14
-    }
-}))
-
-//bcrypt
+// //bcrypt
 
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
@@ -123,14 +106,3 @@ app.post('/login', (req, res) => {
 //         res.status(500).send('Unexpected error')
 //     })
 // })
-
-
-massive(process.env.CONNECTION_STRING).then(database => {
-    console.log('Hooked up to your database bruhh.🤙')
-    app.set('db', database);
-}).catch(error => { console.log(error)});
-
-const PORT = 4000;
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}.🏄`)
-})
